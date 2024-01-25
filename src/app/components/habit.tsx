@@ -3,15 +3,14 @@ import { ReactNode } from "react";
 
 export interface IHabitProps {
   name: string;
-  icon?: ReactNode;
+  icon?: string;
   habitColor?: "#7F2FE3" | "#22C55E" | "#84CC16" | "#EF4444" | "#F97316";
   timeOfDay?: "AM" | "PM";
 }
 
 export default function Habit({
   name,
-  habitColor = "#22C55E",
-  icon = <CloudSun size={24} />,
+  habitColor,
   timeOfDay = "AM",
 }: IHabitProps) {
   return (
@@ -22,9 +21,7 @@ export default function Habit({
         <span
           className={`w-10 h-10 grid place-items-center rounded-full`}
           style={{ background: habitColor }}
-        >
-          {icon}
-        </span>
+        />
         <div>
           <h4 className="text-xl font-medium text-neutral-300 group-hover/item:text-neutral-50 transition-all">
             {name}
