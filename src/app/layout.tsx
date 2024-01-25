@@ -1,8 +1,33 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const satoshi = localFont({
+  src: [
+    {
+      path: "./fonts/satoshi/Satoshi-Regular.ttf",
+      weight: "normal",
+    },
+    {
+      path: "./fonts/satoshi/Satoshi-Medium.ttf",
+      weight: "500",
+    },
+    {
+      path: "./fonts/satoshi/Satoshi-Bold.ttf",
+      weight: "bold",
+    },
+  ],
+  variable: "--font-satoshi",
+});
+
+const messapia = localFont({
+  src: [
+    {
+      path: "./fonts/Messapia-Bold.otf",
+    },
+  ],
+  variable: "--font-messapia",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +41,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${messapia.variable} ${satoshi.variable} font-sans`}>
+        {children}
+      </body>
     </html>
   );
 }
