@@ -1,5 +1,4 @@
 import { CheckCircle, CloudSun, List, XCircle } from "@phosphor-icons/react";
-import { ReactNode } from "react";
 
 export interface IHabitProps {
   name: string;
