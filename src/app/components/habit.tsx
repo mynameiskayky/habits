@@ -5,12 +5,14 @@ export interface IHabitProps {
   icon?: string;
   habitColor?: "#7F2FE3" | "#22C55E" | "#84CC16" | "#EF4444" | "#F97316";
   timeOfDay?: "AM" | "PM";
+  handleDeleteHabit: () => void;
 }
 
 export default function Habit({
   name,
   habitColor,
   timeOfDay = "AM",
+  handleDeleteHabit,
 }: IHabitProps) {
   return (
     <div
@@ -33,7 +35,10 @@ export default function Habit({
       <div className="flex items-center gap-3 text-neutral-500 group-hover/item:text-neutral-300 ">
         <div className="flex items-center gap-1">
           <CheckCircle className="p-1.5 w-10 h-10 transition-colors hover:text-green-500 cursor-pointer" />
-          <XCircle className="p-1.5 w-10 h-10 transition-colors hover:text-red-500 cursor-pointer" />
+          <XCircle
+            className="p-1.5 w-10 h-10 transition-colors hover:text-red-500 cursor-pointer"
+            onClick={handleDeleteHabit}
+          />
         </div>
         <List className="p-1.5 w-10 h-10 border border-neutral-600 cursor-pointer hover:bg-neutral-700/60 rounded-lg transition-all hover:text-neutral-200" />
       </div>
